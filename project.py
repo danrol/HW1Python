@@ -40,7 +40,7 @@ class Project():
         for activity_node, connected_activities in self.activities_dict:
             string_to_return += '{}: ['.format(activity_node)
             for connected_activity_node, connected_activitiy_duration in connected_activities:
-                string_to_return += '{{}:{}}, '.format(connected_activity_node, connected_activitiy_duration)
+                string_to_return += '{}:{}, '.format(connected_activity_node, connected_activitiy_duration)
             string_to_return += ']\n'
         return string_to_return
 
@@ -97,12 +97,26 @@ class Project():
 
 
     def find_critical_path(self):
-        pass
-
-    def __str__(self):
-        pass
-
-
+        # final_node = len(self.activities_dict)
+        # critical_path_duration = 0
+        # arrived_to_final_node = False
+        # critical_path_edges = set()
+        # i = 0
+        # tmp_dict = self.activities_dict
+        #
+        #
+        # while arrived_to_final_node == False:
+        #
+        # for activity_node, connected_activities in tmp_dict:
+        #     #if len(connected_activities > 1):
+        #     if arrived_to_final_node == False:
+        #
+        #     while arrived_to_final_node == False:
+        #         list(my_dict.keys())[0]
+        #
+        #     for connected_activity_node, connected_activitiy_duration in connected_activities:
+        #         critical_path_duration += connected_activitiy_duration
+        #         self.activities_dict.get(connected_activity_node)
 
     @property
     def activity_duration(self):
