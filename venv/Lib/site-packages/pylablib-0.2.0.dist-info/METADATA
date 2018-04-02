@@ -1,0 +1,33 @@
+Metadata-Version: 2.0
+Name: pylablib
+Version: 0.2.0
+Summary: Collection of Python code for using in lab environment (data acquisition, device communication, data analysis)
+Home-page: https://github.com/AlexShkarin/pyLabLib
+Author: Alexey Shkarin
+Author-email: alex.shkarin@gmail.com
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: future
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pyvisa
+Requires-Dist: pyserial
+
+Overview
+=======================
+
+PyLabLib is a collection of code intended to simplify some of the coding tasks encountered in a physics laboratory.
+
+Some major parts include:
+    - Simpler loading and saving of data in text or binary files.
+    - Data tables with heterogeneous columns and more universial indexing (heavy overlap with pandas).
+    - Some data processing utilities: filtering, decimating, peak detection, FFT (mostly wrappers around numpy and scipy).
+    - Classes for device control (universal wrapper for pyVISA, pySerial and network backends).
+    - More user-friendly fitting interface.
+    - Multi-level dictionaries which are convenient for storing heterogeneous data and settings in human-readable format.
+    - A bunch more utilities dealing with file system (creating, moving and removing folders, zipping/unzipping, path normalization), network (simplifed interface for client and server sockets), strings (serializing and de-serializing values), function introspection, and more. 
+
+For a more comprehensive, specialized (classes for certain equipment, GUI building, multithreading, specific computational tasks) and up-to-date version of the library, see pLL project (https://github.com/AlexShkarin/pLL).
+
