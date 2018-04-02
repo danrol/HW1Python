@@ -43,13 +43,17 @@ class Project():
                 string_to_return += '{}:{}, '.format(connected_activity_node, connected_activitiy_duration)
             string_to_return += ']\n'
         return string_to_return
+    @property
+    def activity_duration(self):
+        pass
 
-    def add_activity(self, activity_name, next_activity=None, activity_duration=None):
+    def add_activity(self, activity_name, next_activity = None, activity_duration=None):
         if activity_name in self.activities_dict:
                 if dict(next_activity = activity_duration) not in self.activities_dict.get(activity_name):
                     self.activities_dict.get(activity_name).append(dict(next_activity=activity_duration))
         else:
-            self.activities_dict.update(activity_name=[dict(next_activity=activity_duration)])
+            if next_activity is not None and activity_duration is not None:
+                self.activities_dict.update(activity_name=[dict(next_activity=activity_duration)])
 
 
 
@@ -118,6 +122,7 @@ class Project():
         #         critical_path_duration += connected_activitiy_duration
         #         self.activities_dict.get(connected_activity_node)
 
-    @property
-    def activity_duration(self):
-        pass
+
+    # TESTING - EDEN
+   # p = Project([A : [{B, 5}, {D,6}], B : [{C,3}], C : [{A,1}] , D, [{C,6}]])
+   # p.validate_project()
