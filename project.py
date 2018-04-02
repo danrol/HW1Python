@@ -26,11 +26,11 @@ class Project():
             {another_next_activity : anther_next_activity_duration}, ...]
 
     """
-    def __init__(self, activities_dict= None):
+    def __init__(self, activities_dict = None):
         """ initializes a graph object
                    If no dictionary or None is given, an empty dictionary will be used
                """
-        if activities_dict == None:
+        if activities_dict is None:
             self.activities_dict = dict()
         else:
             self.activities_dict = activities_dict
@@ -61,26 +61,26 @@ class Project():
 
 
     def validate_project(self):
-        G = nx.DiGraph()
+        g = nx.DiGraph()
         edge_colors = ['black']
         for activity_node, connected_activites_dict in self.activities_dict:
-            G.add_node(activity_node)
+            g.add_node(activity_node)
             for connected_activites_nodes, connected_activites_duration in connected_activites_dict:
-                G.add_edges_from([(activity_node, connected_activites_nodes)], weight=connected_activites_duration)
+                g.add_edges_from([(activity_node, connected_activites_nodes)], weight=connected_activites_duration)
 
         #define default style for graph
-        G.graph['graph'] = {'rankdir': 'TD'}
-        G.graph['node'] = {'shape': 'circle'}
-        G.graph['edges'] = {'arrowsize': '4.0'}
+        g.graph['graph'] = {'rankdir': 'TD'}
+        g.graph['node'] = {'shape': 'circle'}
+        g.graph['edges'] = {'arrowsize': '4.0'}
 
         pos = nx.lay
 
         edge_labels = dict([((u, v,), d['weight'])
-                            for u, v, d in G.edges(data=True)])
+                            for u, v, d in g.edges(data=True)])
 
-        pos = nx.spring_layout(G)
-        nx.draw_networkx_edge_labels(G,pos, edge_labels=edge_labels)
-        nx.draw(G, 'black', node_size=1500, edge_color = edge_colors)
+        pos = nx.spring_layout(g)
+        nx.draw_networkx_edge_labels(g,pos, edge_labels=edge_labels)
+        nx.draw(g, 'black', node_size=1500, edge_color = edge_colors)
         pylab.show()
 
 
