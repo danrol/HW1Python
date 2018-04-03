@@ -34,18 +34,21 @@ class Graph():
             self.activities_dict = activities_dict
 
     def __str__(self):
-        string_to_return = ""
-        for activity_node, connected_activities in self.activities_dict:
-            string_to_return += '{}: ['.format(activity_node)
-            for connected_activity_node, connected_activitiy_duration in connected_activities:
-                string_to_return += '{}:{}, '.format(connected_activity_node, connected_activitiy_duration)
-            string_to_return += ']\n'
-        return string_to_return
+        str_to_print = "{\n"
+        for activity_node, connected_activities in self.activities_dict.items():
+            str_to_print += str(activity_node) + ": [ "
+            for connected_nodes_dict in connected_activities:
+                for next_node, next_node_duration in connected_nodes_dict.items():
+                    str_to_print += "{ " + str(next_node) + " : " + str(next_node_duration) + " } "
+            str_to_print += "]\n"
+        str_to_print += "}"
+        return str_to_print
+
     @property
     def activity_duration(self):
         pass
 
-    def add_activity(self, activity_name, next_activities_lst):
+    def add_activity(self, activity_name, next_activities_lst=[]):
         # if activity_duration is None or activity_duration < 0:
         #      print("Activity duration must be equal or bigger than 0")
         # else:
@@ -68,52 +71,51 @@ class Graph():
     def validate_project(self):
         G = nx.DiGraph()
         edge_colors = ['black']
-        for activity_node, connected_activities in self.activities_dict:
+        for activity_node, connected_activities in self.activities_dict.items():
             G.add_node(activity_node)
             for connected_nodes_dict in connected_activities:
-                for connected_activities_nodes, connected_activities_duration in connected_nodes_dict:
+                for connected_activities_nodes, connected_activities_duration in connected_nodes_dict.items():
                      G.add_edges_from([(activity_node, connected_activities_nodes)], weight=connected_activities_duration)
 
                 # for connected_nodes_dict in connected_activities:
                 #     for next_node, next_node_duration in connected_nodes_dict.items():
                 #         str_to_print += "{ " + str(next_node) + " : " + str(next_node_duration) + " } "
 
-
-
         #define default style for graph
         G.graph['graph'] = {'rankdir': 'TD'}
         G.graph['node'] = {'shape': 'circle'}
         G.graph['edges'] = {'arrowsize': '4.0'}
 
-        pos = nx.lay
+        pos = nx.spring_layout(G)
 
         edge_labels = dict([((u, v,), d['weight'])
                             for u, v, d in G.edges(data=True)])
 
         pos = nx.spring_layout(G)
         nx.draw_networkx_edge_labels(G,pos, edge_labels=edge_labels)
-        nx.draw(G, 'black', node_size=1500, edge_color = edge_colors)
+        nx.draw(G, node_color = 'red', node_size=1500, edge_color = 'red')
         pylab.show()
+    #     TODO add labeles to graph (inside node's circle)
+    #     TODO remove isolated nodes
 
-    def print_graph_to_console(self):
-        str_to_print = "{\n"
-        for activity_node, connected_activities in self.activities_dict.items():
-            str_to_print += str(activity_node) + ": [ "
-            for connected_nodes_dict in connected_activities:
-                for next_node, next_node_duration in connected_nodes_dict.items():
-                    str_to_print += "{ "+ str(next_node) + " : " + str(next_node_duration) + " } "
-            str_to_print += "]\n"
-        str_to_print += "}"
-        print(str_to_print)
 
     def find_isolate_activities(self):
         non_isolated_activities = set()
-        for activity_node, connected_activities in self.activities_dict:
+        isolated_nodes = []
+        all_nodes = []
+        for activity_node, connected_activities in self.activities_dict.items():
+            all_nodes.append(activity_node)
             if len(connected_activities) > 0:
                 non_isolated_activities.add(activity_node)
-            for connected_activity_node, connected_activitiy_duration in connected_activities:
-                non_isolated_activities.add(connected_activity_node)
-        return  set(self.activities_dict not in non_isolated_activities)
+            for connected_nodes_dict in connected_activities:
+                for connected_activities_nodes, connected_activities_duration in connected_nodes_dict.items():
+                    non_isolated_activities.add(connected_activities_nodes)
+
+        for node in all_nodes:
+            if node not in non_isolated_activities:
+                isolated_nodes.append(node)
+        return isolated_nodes
+
 
     def find_critical_path(self):
         pass
@@ -144,16 +146,27 @@ class Graph():
 
 g = Graph({'A': [{'B': 5}, {'D': 6}], 'B': [{'C': 3}], 'C': [{'A': 1}], 'D': [{'C': 6}]})
 #g.add_activity('E', 'A', 5 )
-g.print_graph_to_console()
+print(g)
 
 # g.remove_activity('C')
 g.add_activity('E', [{'B': 5}, {'C' : 8}])
-g.print_graph_to_console()
+print(g)
 
 g.add_activity('C', [ {'B' : 90 } ] )
-g.print_graph_to_console()
+print(g)
+# g.validate_project()
 
-g.validate_project()
+g.add_activity('F')
+print(g)
+g.add_activity('T')
+print(g)
+print(g)
+isolated_nodes = g.find_isolate_activities()
+print("\nIsolated nodes:")
+for isolated_node in isolated_nodes:
+    print(isolated_node)
+
+
 
 
 
