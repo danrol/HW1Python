@@ -26,6 +26,7 @@ class Graph():
         """ initializes a graph object
             If no dictionary or None is given, an empty dictionary will be used
         """
+
         if activities_dict is None:
             self.activities_dict = dict()
         else:
@@ -39,6 +40,9 @@ class Graph():
                 string_to_return += '{}:{}, '.format(connected_activity_node, connected_activitiy_duration)
             string_to_return += ']\n'
         return string_to_return
+    @property
+    def activity_duration(self):
+        pass
 
     def add_activity(self, activity_name, next_activities_lst):
         # if activity_duration is None or activity_duration < 0:
@@ -52,8 +56,6 @@ class Graph():
             self.activities_dict.update({activity_name : extended_lst})
             print("end of else")
         #     TODO check for duplicate dictionaries indide list
-
-
         print("Added node successfully")
 
     def remove_activity(self, activity_name):
@@ -64,26 +66,28 @@ class Graph():
         #TODO remove also removed activity from the lists
 
     def validate_project(self):
-        G = nx.DiGraph()
+        g = nx.DiGraph()
         edge_colors = ['black']
         for activity_node, connected_activities in self.activities_dict:
             G.add_node(activity_node)
             for connected_activities_nodes, connected_activities_duration in connected_activities:
                 G.add_edges_from([(activity_node, connected_activities_nodes)], weight=connected_activities_duration)
 
+
+
         #define default style for graph
-        G.graph['graph'] = {'rankdir': 'TD'}
-        G.graph['node'] = {'shape': 'circle'}
-        G.graph['edges'] = {'arrowsize': '4.0'}
+        g.graph['graph'] = {'rankdir': 'TD'}
+        g.graph['node'] = {'shape': 'circle'}
+        g.graph['edges'] = {'arrowsize': '4.0'}
 
         pos = nx.lay
 
         edge_labels = dict([((u, v,), d['weight'])
-                            for u, v, d in G.edges(data=True)])
+                            for u, v, d in g.edges(data=True)])
 
-        pos = nx.spring_layout(G)
-        nx.draw_networkx_edge_labels(G,pos, edge_labels=edge_labels)
-        nx.draw(G, 'black', node_size=1500, edge_color = edge_colors)
+        pos = nx.spring_layout(g)
+        nx.draw_networkx_edge_labels(g,pos, edge_labels=edge_labels)
+        nx.draw(g, 'black', node_size=1500, edge_color = edge_colors)
         pylab.show()
 
     def print_graph_to_console(self):
@@ -143,7 +147,6 @@ g.print_graph_to_console()
 
 g.add_activity('C', [ {'B' : 90 } ] )
 g.print_graph_to_console()
-
 
 
 

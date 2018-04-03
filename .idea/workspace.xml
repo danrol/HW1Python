@@ -80,7 +80,16 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="EDEN" />
+      </list>
+    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -199,6 +208,7 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <configuration name="project" type="PythonConfigurationType" factoryName="Python">
+
       <module name="HW1Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -208,6 +218,7 @@
       <option name="SDK_HOME" value="C:\Users\DAN\Dropbox\!!!Workspaces\HW1Python\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
+
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project.py" />
@@ -221,9 +232,11 @@
       <item itemvalue="Python.ex2-1_Graph_solved" />
       <item itemvalue="Python.ex3-1_Graph_OOP_Solve" />
       <item itemvalue="Python.Graph_example" />
+      <item itemvalue="Python.project" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.project" />
         <item itemvalue="Python.Graph_example" />
         <item itemvalue="Python.ex3-1_Graph_OOP_Solve" />
         <item itemvalue="Python.ex2-1_Graph_solved" />
@@ -241,6 +254,14 @@
       <option name="presentableId" value="Default" />
       <updated>1522484875857</updated>
     </task>
+    <task id="LOCAL-00001" summary="Line 33 == to is">
+      <created>1522672707629</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1522672707629</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -281,6 +302,7 @@
     <breakpoint-manager>
       <option name="time" value="26" />
     </breakpoint-manager>
+
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/project.py">
@@ -289,6 +311,7 @@
           <caret line="103" column="15" lean-forward="true" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
           <folding>
             <element signature="e#660#681#0" expanded="true" />
+
           </folding>
         </state>
       </provider>
@@ -371,11 +394,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py">
+
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+        <state relative-caret-position="1088">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#660#681#0" expanded="true" />
+            <marker date="1522676716485" expanded="true" signature="4009:4018" ph="..." />
           </folding>
         </state>
       </provider>
@@ -400,6 +425,7 @@
           <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="e#660#681#0" expanded="true" />
+
           </folding>
         </state>
       </provider>
