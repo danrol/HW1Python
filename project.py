@@ -13,6 +13,7 @@
 #             self.durations_to_next_activities_lst = durations_to_next_activities_lst
 
 import networkx as nx
+import numpy as np
 import matplotlib.pyplot as plt
 import pylab
 
@@ -54,7 +55,6 @@ class Graph():
             extended_lst = self.activities_dict.get(activity_name)
             extended_lst.extend(next_activities_lst)
             self.activities_dict.update({activity_name : extended_lst})
-            print("end of else")
         #     TODO check for duplicate dictionaries indide list
         print("Added node successfully")
 
@@ -66,28 +66,33 @@ class Graph():
         #TODO remove also removed activity from the lists
 
     def validate_project(self):
-        g = nx.DiGraph()
+        G = nx.DiGraph()
         edge_colors = ['black']
         for activity_node, connected_activities in self.activities_dict:
             G.add_node(activity_node)
-            for connected_activities_nodes, connected_activities_duration in connected_activities:
-                G.add_edges_from([(activity_node, connected_activities_nodes)], weight=connected_activities_duration)
+            for connected_nodes_dict in connected_activities:
+                for connected_activities_nodes, connected_activities_duration in connected_nodes_dict:
+                     G.add_edges_from([(activity_node, connected_activities_nodes)], weight=connected_activities_duration)
+
+                # for connected_nodes_dict in connected_activities:
+                #     for next_node, next_node_duration in connected_nodes_dict.items():
+                #         str_to_print += "{ " + str(next_node) + " : " + str(next_node_duration) + " } "
 
 
 
         #define default style for graph
-        g.graph['graph'] = {'rankdir': 'TD'}
-        g.graph['node'] = {'shape': 'circle'}
-        g.graph['edges'] = {'arrowsize': '4.0'}
+        G.graph['graph'] = {'rankdir': 'TD'}
+        G.graph['node'] = {'shape': 'circle'}
+        G.graph['edges'] = {'arrowsize': '4.0'}
 
         pos = nx.lay
 
         edge_labels = dict([((u, v,), d['weight'])
-                            for u, v, d in g.edges(data=True)])
+                            for u, v, d in G.edges(data=True)])
 
-        pos = nx.spring_layout(g)
-        nx.draw_networkx_edge_labels(g,pos, edge_labels=edge_labels)
-        nx.draw(g, 'black', node_size=1500, edge_color = edge_colors)
+        pos = nx.spring_layout(G)
+        nx.draw_networkx_edge_labels(G,pos, edge_labels=edge_labels)
+        nx.draw(G, 'black', node_size=1500, edge_color = edge_colors)
         pylab.show()
 
     def print_graph_to_console(self):
@@ -147,6 +152,8 @@ g.print_graph_to_console()
 
 g.add_activity('C', [ {'B' : 90 } ] )
 g.print_graph_to_console()
+
+g.validate_project()
 
 
 
