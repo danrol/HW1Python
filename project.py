@@ -40,23 +40,28 @@ class Graph():
             string_to_return += ']\n'
         return string_to_return
 
-    def add_activity(self, activity_name, next_activities_lst): #next_activity=None, activity_duration=None):
+    def add_activity(self, activity_name, next_activities_lst):
         # if activity_duration is None or activity_duration < 0:
         #      print("Activity duration must be equal or bigger than 0")
         # else:
-            if activity_name not in self.activities_dict:
-                self.activities_dict.update({activity_name : next_activities_lst})
-            else:
-                self.activities_dict.update({activity_name : list(set(self.activities_dict.get(activity_name).append(next_activities_lst)))})
+        if activity_name not in self.activities_dict:
+            self.activities_dict.update({activity_name : next_activities_lst})
+        else:
+            extended_lst = self.activities_dict.get(activity_name)
+            extended_lst.extend(next_activities_lst)
+            self.activities_dict.update({activity_name : extended_lst})
+            print("end of else")
+        #     TODO check for duplicate dictionaries indide list
 
-            print("Added node successfully")
+
+        print("Added node successfully")
 
     def remove_activity(self, activity_name):
         if activity_name in self.activities_dict:
             del self.activities_dict[activity_name]
         else:
             print("Can't remove activity that is not in dictionary. Please check your input")
-        #TO-DO remove also removed activity from the lists
+        #TODO remove also removed activity from the lists
 
     def validate_project(self):
         G = nx.DiGraph()
@@ -136,7 +141,7 @@ g.print_graph_to_console()
 g.add_activity('E', [{'B': 5}, {'C' : 8}])
 g.print_graph_to_console()
 
-g.add_activity('C', [ {'A' : 90 } ] )
+g.add_activity('C', [ {'B' : 90 } ] )
 g.print_graph_to_console()
 
 
