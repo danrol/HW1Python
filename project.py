@@ -73,7 +73,6 @@ class Graph():
                     if activity_name == connected_activities_node:
                         connected_activities.remove(connected_nodes_dict)
 
-        #TODO remove also removed activity from the lists
 
     def validate_project(self):
         isolated_activities = self.find_isolate_activities()
@@ -108,7 +107,6 @@ class Graph():
         nx.draw(G, node_color = 'red', node_size=1500, edge_color = 'red')
         pylab.show()
     #     TODO add labeles to graph (inside node's circle)
-    #     TODO remove isolated nodes
 
 
     def find_isolate_activities(self):
@@ -156,7 +154,9 @@ class Graph():
     # def activity_duration(self):
     #     pass
 
-g = Graph({'A': [{'B': 5}, {'D': 6}], 'B': [{'C': 3}], 'C': [{'A': 1}], 'D': [{'C': 6}]})
+g = Graph({'start': [{'B': '5 weeks'}, {'C': '7 weeks'}, {'D': '6 weeks'}], 'B': [{'E': '3 weeks'}, {'F': '9 weeks'}],
+           'C': [{'E': '1 week'}, {'G': '4 weeks'}], 'D': [{'G': '6 weeks'}, {'F': '13 weeks'}],
+           'E': [{'end': '8 weeks'}], 'F': [{'target': '5 weeks'}], 'G': [{'target': '11 weeks'}], 'target': []})
 #g.add_activity('E', 'A', 5 )
 print(g)
 
@@ -181,6 +181,10 @@ for isolated_node in isolated_nodes:
 g.remove_activity('C')
 print(g)
 
+g = Graph({'start': [{'B': '5 weeks'}, {'C': '7 weeks'}, {'D': '6 weeks'}], 'B': [{'E': '3 weeks'}, {'F': '9 weeks'}],
+           'C': [{'E': '1 week'}, {'G': '4 weeks'}], 'D': [{'G': '6 weeks'}, {'F': '13 weeks'}],
+           'E': [{'end': '8 weeks'}], 'F': [{'target': '5 weeks'}], 'G': [{'target': '11 weeks'}], 'target': []})
+print (g)
 
 
 
