@@ -49,10 +49,13 @@ class Graph():
     def activity_duration(self):
         pass
 
-    def add_activity(self, activity_name, next_activities_lst=[]):
+    def add_activity(self, activity_name, activity_before = [], next_activities_lst=[]):
         # if activity_duration is None or activity_duration < 0:
         #      print("Activity duration must be equal or bigger than 0")
         # else:
+        if activity_name != 'end':
+            activity_name = len(self.activities_dict)
+
         if activity_name not in self.activities_dict:
             self.activities_dict.update({activity_name : next_activities_lst})
         else:
@@ -86,7 +89,8 @@ class Graph():
             G.add_node(activity_node)
             for connected_nodes_dict in connected_activities:
                 for connected_activities_nodes, connected_activities_duration in connected_nodes_dict.items():
-                     G.add_edges_from([(activity_node, connected_activities_nodes)], weight=connected_activities_duration)
+                     G.add_edges_from([(activity_node, connected_activities_nodes)],
+                                      weight=connected_activities_duration)
 
                 # for connected_nodes_dict in connected_activities:
                 #     for next_node, next_node_duration in connected_nodes_dict.items():
@@ -127,51 +131,80 @@ class Graph():
         return isolated_nodes
 
 
-    def find_critical_path(self):
-        pass
-        # final_node = len(self.activities_dict)
-        # critical_path_duration = 0
-        # arrived_to_final_node = False
-        # critical_path_edges = set()
-        # i = 0
-        # tmp_dict = self.activities_dict
-        #
-        #
-        # while arrived_to_final_node == False:
-        #
-        # for activity_node, connected_activities in tmp_dict:
-        #     #if len(connected_activities > 1):
-        #     if arrived_to_final_node == False:
-        #
-        #     while arrived_to_final_node == False:
-        #         list(my_dict.keys())[0]
-        #
-        #     for connected_activity_node, connected_activitiy_duration in connected_activities:
-        #         critical_path_duration += connected_activitiy_duration
-        #         self.activities_dict.get(connected_activity_node)
+    # def find_critical_path(self, start_node_name = 'start'):
+    #     durations_dict = {start_node_name:{0:0}}
+    #     for activity_node, connected_activities in self.activities_dict.items():
+    #         tmp_duration = 0
+    #         late_start = 0
+    #         late_finish = 0
+    #         for connected_nodes_dict in connected_activities:
+    #             for connected_activity_node, connected_activities_duration in connected_nodes_dict.items():
+    #                 if connected_activity_node == activity_node:
+    #                     if connected_activities_duration > late_start:
+    #                         late_start = connected_activities_duration
+    #                         tmp_duration = connected_activities_duration
+    #             late_finish = late_start+tmp_duration
+    #             durations_dict.update(activity_node=dict(late_start=late_finish))
 
-    # @property
-    # def activity_duration(self):
-    #     pass
 
-g = Graph({'start': [{'B': '5 weeks'}, {'C': '7 weeks'}, {'D': '6 weeks'}], 'B': [{'E': '3 weeks'}, {'F': '9 weeks'}],
-           'C': [{'E': '1 week'}, {'G': '4 weeks'}], 'D': [{'G': '6 weeks'}, {'F': '13 weeks'}],
-           'E': [{'end': '8 weeks'}], 'F': [{'target': '5 weeks'}], 'G': [{'target': '11 weeks'}], 'target': []})
+
+    def find_critical_path(self, node = 'start', tmp_dict = dict(), lst_durations = [[]], lst_durations_index=0):
+        num_of_next_nodes = tmp_dict.get(node).length
+        if num_of_next_nodes >= 1:
+            lst_durations[lst_durations_index] = [[None] for i in range(num_of_next_nodes)]
+            last_sublist_index = num_of_next_nodes - 1
+        for next_node, next_node_duration in tmp_dict.get(node)[lst_durations_index].items():
+            lst_durations[lst_durations_index].extend(next_node_duration)
+
+
+
+
+
+
+    # def find_critical_path(self, tmp_dict, node = 'start', lst_durations = [[]], lst_durations_index=0):
+    #     if tmp_dict.get('start') == []:
+    #         return lst_durations
+    #
+    #     if node == 'end':
+    #         lst_durations[lst_durations_index].extend(0)
+    #         lst_durations_index += 1
+    #         return self.find_critical_path(tmp_dict, 'start', lst_durations, lst_durations_index)
+    #
+    #     for next_node, next_node_duration in tmp_dict.get(node)[0].items():
+    #         next_node_str = next_node
+    #         lst_durations[lst_durations_index].extend(next_node_duration)
+    #     tmp_dict.get(node).pop(0) #remove first dict in list
+    #     return self.find_critical_path(tmp_dict, next_node_str, lst_durations, lst_durations_index)
+
+
+    # def find_critical_path(self):
+    #
+    #     start_lst = self.activities_dict.get('start')
+    #     for connected_to_start_dicts in start_lst:
+    #         for connected_node, connected_node_duration in connected_to_start_dicts:
+    #             pass
+    #     for activity_node, connected_activities in self.activities_dict.items():
+    #         # num_of_edges_per_node = len(connected_activities)
+    #         for connected_nodes_dict in connected_activities:
+    #             for connected_activity_node, connected_activities_duration in connected_nodes_dict.items():
+    #                 self.activities_dict.get(connected_activity_node)
+
+g = Graph({'start': [{'2': 5}, {'3': 7 }, {'4': 6 }], '2': [{'5': 3 }, {'6': 9 }],
+           '3': [{'5': 1}, {'7': 4 }], '4': [{'7': 6}, {'6': 13 }],
+           '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'end': 11 }], 'end': []})
 #g.add_activity('E', 'A', 5 )
 print(g)
 
 # g.remove_activity('C')
-g.add_activity('E', [{'B': 5}, {'C' : 8}])
+g.add_activity('5', [{'2': 5}, {'3': 8 }])
 print(g)
 
-g.add_activity('C', [ {'B' : 90 } ] )
+g.add_activity('3', [ {'B': 90} ] )
 print(g)
 # g.validate_project()
 
-g.add_activity('F')
-print(g)
-g.add_activity('T')
-print(g)
+
+g.add_activity('10')
 print(g)
 isolated_nodes = g.find_isolate_activities()
 print("\nIsolated nodes:")
@@ -181,11 +214,19 @@ for isolated_node in isolated_nodes:
 g.remove_activity('C')
 print(g)
 
-g = Graph({'start': [{'B': '5 weeks'}, {'C': '7 weeks'}, {'D': '6 weeks'}], 'B': [{'E': '3 weeks'}, {'F': '9 weeks'}],
-           'C': [{'E': '1 week'}, {'G': '4 weeks'}], 'D': [{'G': '6 weeks'}, {'F': '13 weeks'}],
-           'E': [{'end': '8 weeks'}], 'F': [{'target': '5 weeks'}], 'G': [{'target': '11 weeks'}], 'target': []})
-print (g)
 
+g = Graph({'start': [{'2': 5}, {'3': 6 }, {'4': 6 }], '2': [{'5': 3 }],
+           '3': [{'5': 1}, {'6': 4}, {'7': 4 }], '4': [{'7': 13 }],
+           '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'end': 11 }], 'end': []})
+print (g)
+isolated_nodes = g.find_isolate_activities()
+print("\nIsolated nodes:")
+for isolated_node in isolated_nodes:
+    print(isolated_node)
+
+g = Graph({'start': [{'B': 5}, {'C': 7 }, {'D': 6 }], 'B': [{'E': 3 }, {'F': 9 }],
+           'C': [{'E': 1}, {'G': 4 }], 'D': [{'G': 6}, {'F': 13 }],
+           'E': [{'end': 8}], 'F': [{'end': 5}], 'G': [{'end': 11 }], 'end': []})
 
 
 
