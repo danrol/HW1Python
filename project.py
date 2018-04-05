@@ -34,7 +34,8 @@ class Graph():
             self.activities_dict = activities_dict
 
     def __str__(self):
-        str_to_print = "{\n"
+        str_to_print = "\nGraph print:\n"
+        str_to_print += "{\n"
         for activity_node, connected_activities in self.activities_dict.items():
             str_to_print += str(activity_node) + ": [ "
             for connected_nodes_dict in connected_activities:
@@ -62,13 +63,24 @@ class Graph():
         print("Added node successfully")
 
     def remove_activity(self, activity_name):
-        if activity_name in self.activities_dict:
-            del self.activities_dict[activity_name]
-        else:
-            print("Can't remove activity that is not in dictionary. Please check your input")
+        #if activity_name in self.activities_dict:
+        self.activities_dict.pop(activity_name, "Can't remove activity that is not in dictionary. Please check your input")
+        #else:
+         #   print("Can't remove activity that is not in dictionary. Please check your input")
+        for activity_node, connected_activities in self.activities_dict.items():
+            for connected_nodes_dict in connected_activities:
+                for connected_activities_node, connected_activities_duration in connected_nodes_dict.items():
+                    if activity_name == connected_activities_node:
+                        connected_activities.remove(connected_nodes_dict)
+
         #TODO remove also removed activity from the lists
 
     def validate_project(self):
+        isolated_activities = self.find_isolate_activities()
+
+        for isolated_activity in isolated_activities:
+            self.remove_activity(isolated_activity)
+
         G = nx.DiGraph()
         edge_colors = ['black']
         for activity_node, connected_activities in self.activities_dict.items():
@@ -165,6 +177,9 @@ isolated_nodes = g.find_isolate_activities()
 print("\nIsolated nodes:")
 for isolated_node in isolated_nodes:
     print(isolated_node)
+
+g.remove_activity('C')
+print(g)
 
 
 
