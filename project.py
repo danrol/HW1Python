@@ -130,6 +130,24 @@ class Graph():
                 isolated_nodes.append(node)
         return isolated_nodes
 
+    def find_all_paths(self, start_vertex, end_vertex, path=[]):
+        """ find all paths from start_vertex to
+            end_vertex in graph """
+        graph = self.activities_dict
+        path = path + [start_vertex]
+        if start_vertex == end_vertex:
+            return [path]
+        if start_vertex not in graph.keys():
+            return []
+        paths = []
+        for next_nodes_dict in graph[start_vertex]:
+            for vertex in next_nodes_dict.keys():
+                if vertex not in path:
+                    extended_paths = self.find_all_paths(vertex, end_vertex,path)
+                    for p in extended_paths:
+                        paths.append(p)
+        return paths
+
 
     # def find_critical_path(self, start_node_name = 'start'):
     #     durations_dict = {start_node_name:{0:0}}
@@ -147,14 +165,14 @@ class Graph():
     #             durations_dict.update(activity_node=dict(late_start=late_finish))
 
 
-
-    def find_critical_path(self, node = 'start', tmp_dict = dict(), lst_durations = [[]], lst_durations_index=0):
-        num_of_next_nodes = tmp_dict.get(node).length
-        if num_of_next_nodes >= 1:
-            lst_durations[lst_durations_index] = [[None] for i in range(num_of_next_nodes)]
-            last_sublist_index = num_of_next_nodes - 1
-        for next_node, next_node_duration in tmp_dict.get(node)[lst_durations_index].items():
-            lst_durations[lst_durations_index].extend(next_node_duration)
+    #
+    # def find_critical_path(self, node = 'start', tmp_dict = dict(), lst_durations = [[]], lst_durations_index=0):
+    #     num_of_next_nodes = tmp_dict.get(node).length
+    #     if num_of_next_nodes >= 1:
+    #         lst_durations[lst_durations_index] = [[None] for i in range(num_of_next_nodes)]
+    #         last_sublist_index = num_of_next_nodes - 1
+    #     for next_node, next_node_duration in tmp_dict.get(node)[lst_durations_index].items():
+    #         lst_durations[lst_durations_index].extend(next_node_duration)
 
 
 
@@ -189,6 +207,8 @@ class Graph():
     #             for connected_activity_node, connected_activities_duration in connected_nodes_dict.items():
     #                 self.activities_dict.get(connected_activity_node)
 
+
+                                            #########Main#########
 g = Graph({'start': [{'2': 5}, {'3': 7 }, {'4': 6 }], '2': [{'5': 3 }, {'6': 9 }],
            '3': [{'5': 1}, {'7': 4 }], '4': [{'7': 6}, {'6': 13 }],
            '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'end': 11 }], 'end': []})
@@ -228,6 +248,11 @@ g = Graph({'start': [{'B': 5}, {'C': 7 }, {'D': 6 }], 'B': [{'E': 3 }, {'F': 9 }
            'C': [{'E': 1}, {'G': 4 }], 'D': [{'G': 6}, {'F': 13 }],
            'E': [{'end': 8}], 'F': [{'end': 5}], 'G': [{'end': 11 }], 'end': []})
 
+g = Graph({'start': [{'2': 5}, {'3': 6 }, {'4': 6 }], '2': [{'5': 3 }],
+           '3': [{'5': 1}, {'6': 4}, {'7': 4 }], '4': [{'7': 13 }],
+           '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'end': 11 }], 'end': []})
+print("All paths:")
+print(g.find_all_paths('start', 'end'))
 
 
 
