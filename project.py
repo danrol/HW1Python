@@ -171,8 +171,9 @@ class Graph():
                                 break
                                 #if we found next node we can break from loop
         print(durations_lst)
-        return max(durations_lst)
-
+        max_duration = max(durations_lst)
+        print("\nLongest path edges:")
+        return paths[durations_lst.index(max_duration)]
 
 
 
