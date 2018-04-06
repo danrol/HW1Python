@@ -130,7 +130,7 @@ class Graph():
                 isolated_nodes.append(node)
         return isolated_nodes
 
-    def find_all_paths(self, start_vertex, end_vertex, path=[]):
+    def find_all_paths(self, start_vertex='start', end_vertex='end', path=[]):
         """ find all paths from start_vertex to
             end_vertex in graph """
         graph = self.activities_dict
@@ -149,30 +149,32 @@ class Graph():
         return paths
 
 
-    # def find_critical_path(self, start_node_name = 'start'):
-    #     durations_dict = {start_node_name:{0:0}}
-    #     for activity_node, connected_activities in self.activities_dict.items():
-    #         tmp_duration = 0
-    #         late_start = 0
-    #         late_finish = 0
-    #         for connected_nodes_dict in connected_activities:
-    #             for connected_activity_node, connected_activities_duration in connected_nodes_dict.items():
-    #                 if connected_activity_node == activity_node:
-    #                     if connected_activities_duration > late_start:
-    #                         late_start = connected_activities_duration
-    #                         tmp_duration = connected_activities_duration
-    #             late_finish = late_start+tmp_duration
-    #             durations_dict.update(activity_node=dict(late_start=late_finish))
 
 
-    #
-    # def find_critical_path(self, node = 'start', tmp_dict = dict(), lst_durations = [[]], lst_durations_index=0):
-    #     num_of_next_nodes = tmp_dict.get(node).length
-    #     if num_of_next_nodes >= 1:
-    #         lst_durations[lst_durations_index] = [[None] for i in range(num_of_next_nodes)]
-    #         last_sublist_index = num_of_next_nodes - 1
-    #     for next_node, next_node_duration in tmp_dict.get(node)[lst_durations_index].items():
-    #         lst_durations[lst_durations_index].extend(next_node_duration)
+
+    def find_critical_path (self, start_node='start', end_node = 'end'):
+        paths = self.find_all_paths(start_node, end_node)
+        durations_lst = [0]*len(paths)
+
+        for paths_lst_index, path_list in enumerate(paths):
+            for single_path_index, node in enumerate(path_list):
+                 if node != end_node:
+                     # double check for overflow when node=end_node so when path_list[
+                    next_nodes_list = self.activities_dict.get(node)
+                    for next_node_dict in next_nodes_list:
+                        # because to get time between two  activities we need node and next node inside path
+                        next_node_to_find = path_list[single_path_index + 1]
+                        for next_node, next_node_duration in next_node_dict.items():
+                            if next_node == next_node_to_find:
+                               #we search for specific node (next_node_to_find) so we can find duration between node and next_node_to_find
+                                durations_lst[paths_lst_index] += next_node_duration
+                                break
+                                #if we found next node we can break from loop
+        print(durations_lst)
+        return max(durations_lst)
+
+
+
 
 
 
@@ -251,9 +253,11 @@ g = Graph({'start': [{'B': 5}, {'C': 7 }, {'D': 6 }], 'B': [{'E': 3 }, {'F': 9 }
 g = Graph({'start': [{'2': 5}, {'3': 6 }, {'4': 6 }], '2': [{'5': 3 }],
            '3': [{'5': 1}, {'6': 4}, {'7': 4 }], '4': [{'7': 13 }],
            '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'end': 11 }], 'end': []})
+print(g)
+
 print("All paths:")
 print(g.find_all_paths('start', 'end'))
 
-
+print(g.find_critical_path('start', 'end'))
 
 
