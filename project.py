@@ -170,8 +170,10 @@ class Graph():
                                 durations_lst[paths_lst_index] += next_node_duration
                                 break
                                 #if we found next node we can break from loop
+        print("\nDurations by paths:")
         print(durations_lst)
         max_duration = max(durations_lst)
+        print("\nLongest duration is {0}".format(max_duration))
         print("\nLongest path edges:")
         return paths[durations_lst.index(max_duration)]
 
@@ -254,9 +256,13 @@ g = Graph({'start': [{'B': 5}, {'C': 7 }, {'D': 6 }], 'B': [{'E': 3 }, {'F': 9 }
 g = Graph({'start': [{'2': 5}, {'3': 6 }, {'4': 6 }], '2': [{'5': 3 }],
            '3': [{'5': 1}, {'6': 4}, {'7': 4 }], '4': [{'7': 13 }],
            '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'end': 11 }], 'end': []})
+
+g = Graph({'start': [{'B': 5}, {'C': 7 }, {'D': 6 }], 'B': [{'E': 3 }, {'F': 9 }],
+           'C': [{'E': 1}, {'G': 4 }], 'D': [{'G': 6}, {'F': 13 }],
+           'E': [{'end': 8}], 'F': [{'end': 5}], 'G': [{'end': 11 }], 'end': []})
 print(g)
 
-print("All paths:")
+print("\nAll paths:")
 print(g.find_all_paths('start', 'end'))
 
 print(g.find_critical_path('start', 'end'))
