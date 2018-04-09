@@ -106,20 +106,27 @@ class Graph():
     def remove_activity(self, activity_name):
         '''try to remove activity if activity not in dictionary, print:
          "Can't remove activity that is not in dictionary. Please check your input'''
-        self.activities_dict.pop(activity_name,
-                                 "Can't remove activity that is not in dictionary. Please check your input")
+        activity = self.activities_dict.pop(activity_name, None)
+        if activity is None:
+            print("Can't remove activity that is not in dictionary. ('" + activity_name + "') Please check your input")
+            return
 
         for activity_node, connected_activities in self.activities_dict.items():
-            for connected_nodes_dict in connected_activities:
-                for connected_activities_node, connected_activities_duration in connected_nodes_dict.items():
-                    if activity_name == connected_activities_node:
-                        connected_activities.remove(connected_nodes_dict)
+                    if activity_name == activity_node:
+                        self.activities_dic.remove(activity_name)
+                        print("removed")
+                        self.remove_arcs_including(activity_name)
+
+    def remove_arcs_including(self, activity_name):
+        for activity_node, next_activities_list in self.activities_dict.items():
+            #for next_activity in next_activities_list:
+                print("removing....", next_activities_list)
+            #TODO Complete - remove all lines that include activity_name
 
     def find_and_remove_isolate_activities(self):
         isolated_activities = self.find_isolate_activities()
-
-        for isolated_activity in isolated_activities:
-            self.remove_activity(isolated_activity)
+        for isolate_activity in isolated_activities:
+            self.remove_activity(isolate_activity)
 
     def validate_project(self):
         self.find_and_remove_isolate_activities()
@@ -306,15 +313,18 @@ print(g)
 
 # g.remove_activity('C')
 g.add_activity('5', [{'2': 5}, {'3': 8}])
-print("after adding nodes to 5", g)
 g.add_activity('3', [{'B': 90}])
 g.add_activity('10')
-print(g)
+
+
 # g.validate_project()
+#print(g)
+#isolated_nodes = g.find_isolate_activities()
+#print("\nIsolated nodes: ", isolated_nodes)
 
-isolated_nodes = g.find_isolate_activities()
-print("\nIsolated nodes: ", isolated_nodes)
-
+g.remove_activity('11')
+g.remove_activity('7')
+print(g)
 #g.remove_activity('C')
 #
 #g = Graph({'start': [{'2': 5}, {'3': 6}, {'4': 6}], '2': [{'5': 3}],

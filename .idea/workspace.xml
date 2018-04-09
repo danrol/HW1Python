@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c14f049-070f-4059-a4cd-84a54590f588" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HW1Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HW1Python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
     </list>
@@ -19,11 +17,29 @@
       <file leaf-file-name="project.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+            <state relative-caret-position="297">
+              <caret line="313" column="41" selection-start-line="313" selection-start-column="41" selection-end-line="313" selection-end-column="41" />
               <folding>
                 <element signature="e#658#679#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pydev_run_in_console.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -40,12 +56,17 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>duration</find>
-      <find>remove</find>
       <find>next_activities_lst</find>
       <find>durations_lst</find>
       <find>find</find>
       <find>check</find>
       <find>fill</find>
+      <find>isolate</find>
+      <find>'start'</find>
+      <find>'end'</find>
+      <find>activities_dict.get(</find>
+      <find>remove</find>
+      <find>print(g)</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,6 +113,12 @@
               <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
               <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
@@ -250,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522672707629</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update to add_activity">
+      <created>1523295623590</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523295623590</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR">
+      <created>1523302319514</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523302319514</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -269,6 +310,7 @@
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2526357" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.22835498" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32900432" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32900432" />
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.28341013" />
@@ -280,13 +322,17 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="4" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update to add_activity" />
+    <MESSAGE value="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -301,7 +347,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
     <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
     <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
@@ -401,6 +446,16 @@
     <entry file="file://$PROJECT_DIR$/Graph_example.py" />
     <entry file="file://$USER_HOME$/Desktop/ex4.py" />
     <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -408,13 +463,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="92" column="34" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+        <state relative-caret-position="297">
+          <caret line="313" column="41" selection-start-line="313" selection-start-column="41" selection-end-line="313" selection-end-column="41" />
           <folding>
             <element signature="e#658#679#0" expanded="true" />
           </folding>
