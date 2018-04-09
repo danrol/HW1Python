@@ -111,22 +111,20 @@ class Graph():
             print("Can't remove activity that is not in dictionary. ('" + activity_name + "') Please check your input")
             return
 
-        for activity_node, connected_activities in self.activities_dict.items():
-                    if activity_name == activity_node:
-                        self.activities_dic.remove(activity_name)
-                        print("removed")
-                        self.remove_arcs_including(activity_name)
+        '''removing all lines which lead to activity_name'''
+        self.remove_arcs_including(activity_name)
 
     def remove_arcs_including(self, activity_name):
-        for activity_node, next_activities_list in self.activities_dict.items():
-            #for next_activity in next_activities_list:
-                print("removing....", next_activities_list)
-            #TODO Complete - remove all lines that include activity_name
+        for activity_node, connected_activities in self.activities_dict.items():
+            for connected_nodes_dict in connected_activities:
+                for connected_activities_node, connected_activities_duration in connected_nodes_dict.items():
+                    if activity_name == connected_activities_node:
+                        self.activities_dict.get(activity_node).remove(connected_nodes_dict)
 
     def find_and_remove_isolate_activities(self):
         isolated_activities = self.find_isolate_activities()
-        for isolate_activity in isolated_activities:
-            self.remove_activity(isolate_activity)
+        for isolated_activity in isolated_activities:
+            self.remove_activity(isolated_activity)
 
     def validate_project(self):
         self.find_and_remove_isolate_activities()
