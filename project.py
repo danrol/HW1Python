@@ -66,22 +66,25 @@ class Graph():
         print("Added node successfully")
 
     def remove_activity(self, activity_name):
-        #if activity_name in self.activities_dict:
-        self.activities_dict.pop(activity_name, "Can't remove activity that is not in dictionary. Please check your input")
-        #else:
-         #   print("Can't remove activity that is not in dictionary. Please check your input")
+        '''try to remove activity if activity not in dictionary, print:
+         "Can't remove activity that is not in dictionary. Please check your input'''
+        self.activities_dict.pop(activity_name,
+                                 "Can't remove activity that is not in dictionary. Please check your input")
+
         for activity_node, connected_activities in self.activities_dict.items():
             for connected_nodes_dict in connected_activities:
                 for connected_activities_node, connected_activities_duration in connected_nodes_dict.items():
                     if activity_name == connected_activities_node:
                         connected_activities.remove(connected_nodes_dict)
 
-
-    def validate_project(self):
+    def find_and_remove_isolate_activities(self):
         isolated_activities = self.find_isolate_activities()
 
         for isolated_activity in isolated_activities:
             self.remove_activity(isolated_activity)
+
+    def validate_project(self):
+        self.find_and_remove_isolate_activities()
 
         G = nx.DiGraph()
         edge_colors = ['black']
@@ -92,9 +95,7 @@ class Graph():
                      G.add_edges_from([(activity_node, connected_activities_nodes)],
                                       weight=connected_activities_duration)
 
-                # for connected_nodes_dict in connected_activities:
-                #     for next_node, next_node_duration in connected_nodes_dict.items():
-                #         str_to_print += "{ " + str(next_node) + " : " + str(next_node_duration) + " } "
+
 
         #define default style for graph
         G.graph['graph'] = {'rankdir': 'TD'}
@@ -113,6 +114,26 @@ class Graph():
     #     TODO add labeles to graph (inside node's circle)
 
 
+
+
+    def find_all_circles_helper(self, start_node, end_node):
+        fringe = [(start_node, [])]
+        while fringe:
+            state, path = fringe.pop()
+            if path and state == end_node:
+                yield path
+                continue
+            for next_dicts in self.activities_dict[state]:
+                for next_state, next_state_duration in next_dicts.items():
+                    if next_state in path:
+                        continue
+                    fringe.append((next_state, path+[next_state]))
+
+    def find_all_circles(self):
+        circles = [[node] + path for node in self.activities_dict for path in self.find_all_circles_helper(node, node)]
+        return circles
+
+
     def find_isolate_activities(self):
         non_isolated_activities = set()
         isolated_nodes = []
@@ -129,6 +150,7 @@ class Graph():
             if node not in non_isolated_activities:
                 isolated_nodes.append(node)
         return isolated_nodes
+
 
     def find_all_paths(self, start_vertex='start', end_vertex='end', path=[]):
         """ find all paths from start_vertex to
@@ -265,6 +287,14 @@ print(g)
 print("\nAll paths:")
 print(g.find_all_paths('start', 'end'))
 
+g = Graph({'start': [{'2': 5}, {'3': 6 }, {'4': 6 }], '2': [{'5': 3 }],
+           '3': [{'5': 1}, {'6': 4}, {'7': 4 }], '4': [{'7': 13 }],
+           '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'4': 0}, {'end': 11 }], 'end': []})
+print(g)
+print(g.find_all_paths('start', 'end'))
 print(g.find_critical_path('start', 'end'))
 
+print("\n All circles:")
+print(g.find_all_circles())
 
+# TODO check for duplicates
