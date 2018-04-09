@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c14f049-070f-4059-a4cd-84a54590f588" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,17 @@
       <file leaf-file-name="project.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3395">
-              <caret line="305" column="58" selection-start-line="305" selection-start-column="58" selection-end-line="305" selection-end-column="58" />
+            <state relative-caret-position="405">
+              <caret line="396" column="25" lean-forward="true" selection-start-line="396" selection-start-column="25" selection-end-line="396" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="310" selection-start-line="310" selection-end-line="310" />
             </state>
           </provider>
         </entry>
@@ -76,6 +84,10 @@
       <find>duration</find>
       <find>remove</find>
       <find>next_activities_lst</find>
+      <find>durations_lst</find>
+      <find>find</find>
+      <find>check</find>
+      <find>fill</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -277,13 +289,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2528978" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.22835498" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32900432" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32900432" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.9069264" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.23051947" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32900432" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -294,7 +308,6 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -309,17 +322,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="69" />
+      <option name="time" value="87" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/ex4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -675,10 +681,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3395">
-          <caret line="305" column="58" selection-start-line="305" selection-start-column="58" selection-end-line="305" selection-end-column="58" />
+        <state relative-caret-position="405">
+          <caret line="396" column="25" lean-forward="true" selection-start-line="396" selection-start-column="25" selection-end-line="396" selection-end-column="25" />
         </state>
       </provider>
     </entry>

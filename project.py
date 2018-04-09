@@ -23,7 +23,7 @@ class Graph():
         activities_dict (activity_name : [{next_activity : activity_duration},
         {another_next_activity : anther_next_activity_duration}, ...]
     """
-    def __init__(self, activities_dict=None):
+    def __init__(self, activities_dict=None, essential_activities=None):
         """ initializes a graph object
             If no dictionary or None is given, an empty dictionary will be used
         """
@@ -32,6 +32,43 @@ class Graph():
             self.activities_dict = dict()
         else:
             self.activities_dict = activities_dict
+
+        self._essential_activities = essential_activities
+
+        self._es_ls_ef_lf = dict()
+        # TODO define default 0 for every value (4 values at all) in self._es_ls_ef_lf lists
+        for activity_node, next_activities in self.activities_dict.items():
+            self._es_ls_ef_lf[activity_node] = [0]*4
+
+        self._project_duration = 0
+
+
+
+
+    def print_essential_activities(self):
+        print("\nEssential activities: ")
+        str_builder = "{ "
+        for activity, essential_activities_lst in self._essential_activities.items():
+            str_builder += "'" + activity + "'" + " : [ "
+            for essential_activity in essential_activities_lst:
+                str_builder += "'" + essential_activity + "' "
+            str_builder += "] "
+        str_builder += "}"
+        print(str_builder)
+
+
+    @property
+    def essential_activities(self):
+        return self._essential_activities
+
+
+    @essential_activities.setter
+    def essential_activities(self, essential_activities = None):
+        if essential_activities is None:
+            self.essential_activities = dict()
+        else:
+            self._essential_activities = essential_activities
+
 
     def __str__(self):
         str_to_print = "\nGraph print:\n"
@@ -46,8 +83,14 @@ class Graph():
         return str_to_print
 
     @property
-    def activity_duration(self):
-        pass
+    def project_duration(self):
+        return int(self._project_duration)
+
+
+
+    @project_duration.setter
+    def project_duration(self, project_duration):
+        self._project_duration = project_duration
 
     def add_activity(self, activity_name, activity_before = [], next_activities_lst=[]):
         # if activity_duration is None or activity_duration < 0:
@@ -85,32 +128,34 @@ class Graph():
 
     def validate_project(self):
         self.find_and_remove_isolate_activities()
+        print("\n All circles:")
+        print(self.find_all_circles())
 
-        G = nx.DiGraph()
-        edge_colors = ['black']
-        for activity_node, connected_activities in self.activities_dict.items():
-            G.add_node(activity_node)
-            for connected_nodes_dict in connected_activities:
-                for connected_activities_nodes, connected_activities_duration in connected_nodes_dict.items():
-                     G.add_edges_from([(activity_node, connected_activities_nodes)],
-                                      weight=connected_activities_duration)
+        # G = nx.DiGraph()
+        # edge_colors = ['black']
+        # for activity_node, connected_activities in self.activities_dict.items():
+        #     G.add_node(activity_node)
+        #     for connected_nodes_dict in connected_activities:
+        #         for connected_activities_nodes, connected_activities_duration in connected_nodes_dict.items():
+        #              G.add_edges_from([(activity_node, connected_activities_nodes)],
+        #                               weight=connected_activities_duration)
 
 
 
         #define default style for graph
-        G.graph['graph'] = {'rankdir': 'TD'}
-        G.graph['node'] = {'shape': 'circle'}
-        G.graph['edges'] = {'arrowsize': '4.0'}
-
-        pos = nx.spring_layout(G)
-
-        edge_labels = dict([((u, v,), d['weight'])
-                            for u, v, d in G.edges(data=True)])
-
-        pos = nx.spring_layout(G)
-        nx.draw_networkx_edge_labels(G,pos, edge_labels=edge_labels)
-        nx.draw(G, node_color = 'red', node_size=1500, edge_color = 'red')
-        pylab.show()
+        # G.graph['graph'] = {'rankdir': 'TD'}
+        # G.graph['node'] = {'shape': 'circle'}
+        # G.graph['edges'] = {'arrowsize': '4.0'}
+        #
+        # pos = nx.spring_layout(G)
+        #
+        # edge_labels = dict([((u, v,), d['weight'])
+        #                     for u, v, d in G.edges(data=True)])
+        #
+        # pos = nx.spring_layout(G)
+        # nx.draw_networkx_edge_labels(G,pos, edge_labels=edge_labels)
+        # nx.draw(G, node_color = 'red', node_size=1500, edge_color = 'red')
+        # pylab.show()
     #     TODO add labeles to graph (inside node's circle)
 
 
@@ -170,22 +215,71 @@ class Graph():
                         paths.append(p)
         return paths
 
+    # def fill_essential_nodes_es_ls(self, start_node = 'start', end_node = 'end'):
+    #     all_paths = self.find_all_paths(start_node, end_node)
+    #     for activity, essential_nodes_lst in self.essential_activities.items():
+    #         for essential_node in essential_nodes_lst:
+    #             for index, path in enumerate(all_paths):
+    #                 if essential_node in path:
+    #                     for node_index, node in enumerate(path):
+    #                         for dicts in self.activities_dict[node]:
+    #                             for next_node, next_node_duration in dicts.items():
+    #                                 es_for_essential_node = 0
+    #                                 if next_node == path[node_index+1]:
+    #                                     es_for_essential_node += next_node_duration
+    #                                 if next_node == essential_node:
+    #                                     essential_node_duration = next_node_duration
+    #                                     break
+    #                                 needed_list = [0]*4
+    #                                 old_es_list = self._es_ls_ef_lf.get(essential_node)
+    #                                 old_es = old_es_list[0]
+    #                                 max_essential_duration = max(old_es, es_for_essential_node)
+    #                                 needed_list[0] = max_essential_duration
+    #                                  # needed_list[1] = needed_list[0]+essential_node_duration
+    #                                 needed_list[2] = self._es_ls_ef_lf[essential_node][2]
+    #                                 needed_list[3] = self._es_ls_ef_lf[essential_node][3]
+    #                                 self._es_ls_ef_lf[essential_node] = needed_list
 
 
 
 
-    def find_critical_path (self, start_node='start', end_node = 'end'):
+
+    # def check_essentials(self, node, duration = 0):
+    #     if node not in self.essential_activities:
+    #         return
+    #     for essential_node in self.essential_activities[node]:
+    #         if essential_node in self.essential_activities:
+    #            return self.check_essentials(essential_node) + self.check_how_much_time_until_essential_finished(essential_node)
+    #
+    #
+    # def find_es_ls_ef_lf(self, start_node = 'start', end_node = 'end'):
+    #     paths = self.find_all_paths(start_node, end_node)
+    #     for paths_lst_index, path_list in enumerate(paths):
+    #         for single_path_index, node in enumerate(path_list):
+    #             if node != end_node:
+    #                 next_nodes_list = self.activities_dict.get(node)
+    #                 for next_node_dict in next_nodes_list:
+    #                     next_node_to_find = path_list[single_path_index + 1]
+    #                     self.check_essentials(node)
+
+
+
+    def find_critical_path (self, start_node='start', end_node = 'end', mission = "critical path"):
         paths = self.find_all_paths(start_node, end_node)
         durations_lst = [0]*len(paths)
 
         for paths_lst_index, path_list in enumerate(paths):
             for single_path_index, node in enumerate(path_list):
                  if node != end_node:
-                     # double check for overflow when node=end_node so when path_list[
+                     # double check for overflow when node=end_node so when path_list[single_path_index +1] won't make problem
                     next_nodes_list = self.activities_dict.get(node)
                     for next_node_dict in next_nodes_list:
                         # because to get time between two  activities we need node and next node inside path
                         next_node_to_find = path_list[single_path_index + 1]
+                        if node in self.essential_activities.keys():
+                            self.essential_activities[node]
+                            #TODO add time by slack time
+                            # durations_lst[paths_lst_index] +=
                         for next_node, next_node_duration in next_node_dict.items():
                             if next_node == next_node_to_find:
                                #we search for specific node (next_node_to_find) so we can find duration between node and next_node_to_find
@@ -197,7 +291,9 @@ class Graph():
         max_duration = max(durations_lst)
         print("\nLongest duration is {0}".format(max_duration))
         print("\nLongest path edges:")
+        self.project_duration = max_duration
         return paths[durations_lst.index(max_duration)]
+
 
 
 
@@ -291,10 +387,20 @@ g = Graph({'start': [{'2': 5}, {'3': 6 }, {'4': 6 }], '2': [{'5': 3 }],
            '3': [{'5': 1}, {'6': 4}, {'7': 4 }], '4': [{'7': 13 }],
            '5': [{'end': 8}], '6': [{'end': 5}], '7': [{'4': 0}, {'end': 11 }], 'end': []})
 print(g)
+g.essential_activities = {'2': ['3'], 'end' : ['2'], '3': ['4']}
+g.print_essential_activities()
+print("\n All paths:")
 print(g.find_all_paths('start', 'end'))
 print(g.find_critical_path('start', 'end'))
 
-print("\n All circles:")
-print(g.find_all_circles())
+print("Project duration is")
+print(g.project_duration)
+
+
+# g.fill_essential_nodes_es_ls()
+# g.print_essential_activities()
+# print(g._es_ls_ef_lf)
+#
+# g.validate_project()
 
 # TODO check for duplicates
