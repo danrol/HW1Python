@@ -179,8 +179,9 @@ class Graph():
     def find_isolate_activities(self):
         isolated_activities = []
         for end_activity, connected_activities_start in self.activities_dict.items():
-            if end_activity is not START_NODE_STR:
-                if len(self.find_all_paths(START_NODE_STR, end_activity)) == 0:
+            if end_activity is not END_NODE_STR:
+                if len(self.find_all_paths(START_NODE_STR, end_activity)) == 0 or len(
+                        self.activities_dict.get(end_activity)) == 0:
                     isolated_activities.append(end_activity)
         return isolated_activities
 
@@ -317,12 +318,12 @@ g.add_activity('5', [{'2': 5}, {'3': 8}])
 g.add_activity('3', [{'B': 90}])
 g.add_activity('10')
 
-g.validate_project()
+# g.validate_project()
 
 
 #print(g)
-#isolated_nodes = g.find_isolate_activities()
-#print("\nIsolated nodes: ", isolated_nodes)
+isolated_nodes = g.find_isolate_activities()
+print("\nIsolated nodes: ", isolated_nodes)
 
 g.remove_activity('11')
 g.remove_activity('7')
