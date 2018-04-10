@@ -308,11 +308,19 @@ g = Graph({START_NODE_STR: [{'2': 5}, {'3': 7}, {'4': 6}], '2': [{'5': 3}, {'6':
            '5': [{END_NODE_STR: 8}], '6': [{END_NODE_STR: 5}], '7': [{END_NODE_STR: 11}], END_NODE_STR: []})
 # g.add_activity('E', 'A', 5 )
 print(g)
+print(g)
+g.add_activity('5', [{'2':5}])
+print(g)
+print("Circles:")
+print(g.find_all_circles())
 
 # g.remove_activity('C')
-g.add_activity('5', [{'2': 5}, {'3': 8}])
-g.add_activity('3', [{'B': 90}])
-g.add_activity('10')
+# g.add_activity('5', [{'2': 5}, {'3': 8}])
+# # g.add_activity('3', [{'B': 90}])
+# # g.add_activity('10')
+# # print(g)
+# # g.add_activity('5', [{'2':5}])
+# # print(g)
 
 
 # g.validate_project()
