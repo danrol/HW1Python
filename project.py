@@ -157,6 +157,7 @@ class Graph():
 
     #     TODO add labeles to graph (inside node's circle)
 
+    # TODO Add description of function
     def find_all_circles_helper(self, start_node, end_node):
         fringe = [(start_node, [])]
         while fringe:
@@ -170,6 +171,7 @@ class Graph():
                         continue
                     fringe.append((next_state, path + [next_state]))
 
+    # TODO Add description of function
     def find_all_circles(self):
         circles = [[node] + path for node in self.activities_dict for path in self.find_all_circles_helper(node, node)]
         return circles
@@ -182,6 +184,7 @@ class Graph():
                     isolated_activities.append(end_activity)
         return isolated_activities
 
+    '''this function returns a list of lists showing paths from activity a to b'''
     def find_all_paths(self, start_vertex=START_NODE_STR, end_vertex=END_NODE_STR, path=[]):
         """ find all paths from start_vertex to
             end_vertex in graph """
@@ -322,8 +325,9 @@ print(g.find_all_circles())
 # # g.add_activity('5', [{'2':5}])
 # # print(g)
 
+g.validate_project()
 
-# g.validate_project()
+
 #print(g)
 #isolated_nodes = g.find_isolate_activities()
 #print("\nIsolated nodes: ", isolated_nodes)
