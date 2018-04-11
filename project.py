@@ -12,16 +12,31 @@
 #         else:
 #             self.durations_to_next_activities_lst = durations_to_next_activities_lst
 
+#TODO remove unused imports
+#TODO Complete log outputs throughout file
+
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab
 
+import os
+
+file_path = "Python_HW1Python_Logs.txt"
+'''Logs will be written in this file, if previous version exists it will be erased'''
+
+if os.path.isfile(file_path):
+    try:
+        os.remove(file_path)
+    except OSError:
+        pass
+logfile = open(file_path, 'x')
+
 START_NODE_STR: str = 'start'
 END_NODE_STR: str = 'end'
 
 
-class Graph():
+class Graph:
     """This class represents project
         Attributes:
         activities_dict (activity_name : [{next_activity : activity_duration},
@@ -32,13 +47,21 @@ class Graph():
         """ initializes a graph object
             If no dictionary or None is given, an empty dictionary will be used
         """
-
+        logfile.write("Graph : _init_ : Creating new graph\n")
         if activities_dict is None:
             self.activities_dict = dict()
+            logfile.write("Graph : _init_ : No values for graph, creating generic empty graph\n")
         else:
             self.activities_dict = activities_dict
+            logfile.write("Graph : _init_ : graph arcs added\n")
+        if essential_activities is None:
+            self._essential_activities = dict()
+            logfile.write("Graph : _init_ : No values for essential graph arcs, creating generic empty dictionary for essential arcs\n")
+        else:
+            self._essential_activities = essential_activities
+            logfile.write("Graph : _init_ : graph essential arcs added\n")
 
-        self._essential_activities = essential_activities
+
 
         self._es_ls_ef_lf = dict()
         # TODO define default 0 for every value (4 values at all) in self._es_ls_ef_lf lists
@@ -374,3 +397,4 @@ print(g)
 # g.validate_project()
 
 # TODO check for duplicates
+logfile.close()
