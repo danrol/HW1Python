@@ -93,6 +93,7 @@ class Graph:
             self._essential_activities = essential_activities
 
     def __str__(self):
+        logfile.write("Graph : _str_ : printing all nodes arcs and durations\n")
         str_to_print = "\nGraph print:\n"
         str_to_print += "{\n"
         for activity_node, connected_activities in self.activities_dict.items():
@@ -100,6 +101,7 @@ class Graph:
             for connected_nodes_dict in connected_activities:
                 for next_node, next_node_duration in connected_nodes_dict.items():
                     str_to_print += "{ " + str(next_node) + " : " + str(next_node_duration) + " } "
+                    logfile.write("Graph : _init_ : in for loop : adding" + str(next_node) + " : " + str(next_node_duration) + " for " + str(activity_node) + "\n")
             str_to_print += "]\n"
         str_to_print += "}"
         return str_to_print
@@ -116,25 +118,32 @@ class Graph:
         # if activity_duration is None or activity_duration < 0:
         #      print("Activity duration must be equal or bigger than 0")
         # else:
+        logfile.write("Graph : add_activity : trying to add" + str(activity_name) + "\n")
         if activity_name != END_NODE_STR:
             if activity_name not in self.activities_dict:
                 self.activities_dict.update({activity_name: next_activities_lst})
+                logfile.write("Graph : add_activity: created new activity in graph\n")
             else:
                 extended_lst = self.activities_dict.get(activity_name)
                 extended_lst.extend(next_activities_lst)
+                logfile.write("Graph : add_activity: activity already exists, adding arcs to activity\n")
                 self.activities_dict.update({activity_name: extended_lst})
             #       TODO check for duplicate dictionaries inside list
             print("Added node successfully")
+            logfile.write("Graph : add_activity: activity added\n")
 
     def remove_activity(self, activity_name):
         '''try to remove activity if activity not in dictionary, print:
          "Can't remove activity that is not in dictionary. Please check your input'''
         activity = self.activities_dict.pop(activity_name, None)
+        logfile.write("Graph : remove_activity: tried to remove activity from graph\n")
         if activity is None:
+            logfile.write("Graph : remove_activity: activity doesn't exist therefore couldn't be removed\n")
             print("Can't remove activity that is not in dictionary. ('" + activity_name + "') Please check your input")
             return
 
         '''removing all lines which lead to activity_name'''
+        logfile.write("Graph : remove_activity: remove all arcs related to removed activity\n")
         self.remove_arcs_including(activity_name)
 
     def remove_arcs_including(self, activity_name):
