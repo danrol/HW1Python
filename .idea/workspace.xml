@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9c14f049-070f-4059-a4cd-84a54590f588" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +17,29 @@
       <file leaf-file-name="project.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-459">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="297">
+              <caret line="313" column="41" selection-start-line="313" selection-start-column="41" selection-end-line="313" selection-end-column="41" />
               <folding>
                 <element signature="e#658#679#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pydev_run_in_console.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_pydev_execfile.py" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -37,6 +56,17 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>duration</find>
+      <find>next_activities_lst</find>
+      <find>durations_lst</find>
+      <find>find</find>
+      <find>check</find>
+      <find>fill</find>
+      <find>isolate</find>
+      <find>'start'</find>
+      <find>'end'</find>
+      <find>activities_dict.get(</find>
+      <find>remove</find>
+      <find>print(g)</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -61,10 +91,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="130" />
-    <option name="width" value="1440" />
-    <option name="height" value="780" />
+    <option name="x" value="-336" />
+    <option name="y" value="339" />
+    <option name="width" value="1800" />
+    <option name="height" value="975" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -84,6 +114,18 @@
               <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="Lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="share" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -93,7 +135,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Python" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -131,7 +173,25 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="ex2-1_Graph_solved" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
+      <module name="HW1Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="ex2-1_Graph_solved" type="PythonConfigurationType" factoryName="Python">
       <module name="HW1Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -149,7 +209,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="ex3-1_Graph_OOP_Solve" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ex3-1_Graph_OOP_Solve" type="PythonConfigurationType" factoryName="Python">
       <module name="HW1Python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -174,18 +234,19 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\DAN\Dropbox\!!!Workspaces\HW1Python\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
+      <item itemvalue="Python.Unnamed" />
       <item itemvalue="Python.project" />
       <item itemvalue="Python.ex2-1_Graph_solved" />
       <item itemvalue="Python.ex3-1_Graph_OOP_Solve" />
@@ -195,8 +256,6 @@
       <list>
         <item itemvalue="Python.project" />
         <item itemvalue="Python.Graph_example" />
-        <item itemvalue="Python.ex3-1_Graph_OOP_Solve" />
-        <item itemvalue="Python.ex2-1_Graph_solved" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522672707629</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update to add_activity">
+      <created>1523295623590</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523295623590</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR">
+      <created>1523302319514</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523302319514</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -231,160 +304,88 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.14275256" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50073206" side_tool="true" visible="true" weight="0.3290938" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="3" sideWeight="0.49926794" visible="true" weight="0.3290938" />
-      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32946146" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49853587" weight="0.19077902" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32900432" />
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.35714287" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2528978" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="TODO" order="10" visible="true" weight="0.32900432" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32900432" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39935064" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2526357" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.22835498" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32900432" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32900432" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.28341013" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32900432" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39935064" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="4" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update to add_activity" />
+    <MESSAGE value="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="87" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="129" column="84" selection-start-line="129" selection-start-column="84" selection-end-line="129" selection-end-column="84" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="103" column="15" lean-forward="true" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
-    <entry file="file://$PROJECT_DIR$/Graph_example.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
     <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
     <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="103" column="15" lean-forward="true" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3332">
+          <caret line="196" column="29" selection-start-line="196" selection-start-column="29" selection-end-line="196" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/ex4.py" />
     <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
-    <entry file="file://$PROJECT_DIR$/Graph_example.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
-    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
     <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
     <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="46" column="4" lean-forward="true" selection-start-line="45" selection-end-line="47" selection-end-column="12" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3332">
+          <caret line="196" column="29" lean-forward="true" selection-start-line="196" selection-start-column="29" selection-end-line="196" selection-end-column="29" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
+    <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
+    <entry file="file://$PROJECT_DIR$/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="97" column="58" lean-forward="true" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
+    <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1751">
           <caret line="103" column="15" lean-forward="true" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -396,9 +397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1088">
           <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#658#679#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -419,8 +417,56 @@
     <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-459">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="561">
+          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1751">
+          <caret line="103" column="15" lean-forward="true" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
+    <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
+    <entry file="file://$PROJECT_DIR$/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
+    <entry file="file://$PROJECT_DIR$/Graph_example.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex4.py" />
+    <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
+    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="313" column="41" selection-start-line="313" selection-start-column="41" selection-end-line="313" selection-end-column="41" />
           <folding>
             <element signature="e#658#679#0" expanded="true" />
           </folding>
