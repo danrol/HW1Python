@@ -1,16 +1,3 @@
-# class Activity():
-#     def __init__(self, next_activities_lst=[], durations_to_next_activities_lst=[]):
-#         if next_activities_lst == None:
-#             self.next_activities_lst = []
-#         else:
-#             self.next_activities_lst = next_activities_lst
-#
-#         if durations_to_next_activities_lst == None and next_activities_lst != None:
-#             self.durations_to_next_activities_lst.append(0)
-#         elif next_activities_lst == None and next_activities_lst == None:
-#             self.durations_to_next_activities_lst = []
-#         else:
-#             self.durations_to_next_activities_lst = durations_to_next_activities_lst
 
 #TODO remove unused imports
 #TODO Complete log outputs throughout file
@@ -64,7 +51,6 @@ class Graph:
 
 
         self._es_ls_ef_lf = dict()
-        # TODO define default 0 for every value (4 values at all) in self._es_ls_ef_lf lists
         for activity_node, next_activities in self.activities_dict.items():
             self._es_ls_ef_lf[activity_node] = [0] * 4
 
@@ -279,7 +265,10 @@ class Graph:
     #                     next_node_to_find = path_list[single_path_index + 1]
     #                     self.check_essentials(node)
 
-    def find_critical_path(self, start_node=START_NODE_STR, end_node=END_NODE_STR, mission="critical path"):
+    def find_es_ls_ef_lf(self, start_node=START_NODE_STR, end_node=END_NODE_STR):
+        pass
+
+    def find_critical_path(self, start_node=START_NODE_STR, end_node=END_NODE_STR):
         paths = self.find_all_paths(start_node, end_node)
         durations_lst = [0] * len(paths)
 

@@ -1,0 +1,61 @@
+Graph : _init_ : Creating new graph
+Graph : _init_ : graph arcs added
+Graph : _init_ : No values for essential graph arcs, creating generic empty dictionary for essential arcs
+Graph : _str_ : printing all nodes arcs and durations
+Graph : _init_ : in for loop : adding2 : 5 for start
+Graph : _init_ : in for loop : adding3 : 7 for start
+Graph : _init_ : in for loop : adding4 : 6 for start
+Graph : _init_ : in for loop : adding5 : 3 for 2
+Graph : _init_ : in for loop : adding6 : 9 for 2
+Graph : _init_ : in for loop : adding5 : 1 for 3
+Graph : _init_ : in for loop : adding7 : 4 for 3
+Graph : _init_ : in for loop : adding7 : 6 for 4
+Graph : _init_ : in for loop : adding6 : 13 for 4
+Graph : _init_ : in for loop : addingend : 8 for 5
+Graph : _init_ : in for loop : addingend : 5 for 6
+Graph : _init_ : in for loop : addingend : 11 for 7
+Graph : _str_ : printing all nodes arcs and durations
+Graph : _init_ : in for loop : adding2 : 5 for start
+Graph : _init_ : in for loop : adding3 : 7 for start
+Graph : _init_ : in for loop : adding4 : 6 for start
+Graph : _init_ : in for loop : adding5 : 3 for 2
+Graph : _init_ : in for loop : adding6 : 9 for 2
+Graph : _init_ : in for loop : adding5 : 1 for 3
+Graph : _init_ : in for loop : adding7 : 4 for 3
+Graph : _init_ : in for loop : adding7 : 6 for 4
+Graph : _init_ : in for loop : adding6 : 13 for 4
+Graph : _init_ : in for loop : addingend : 8 for 5
+Graph : _init_ : in for loop : addingend : 5 for 6
+Graph : _init_ : in for loop : addingend : 11 for 7
+Graph : add_activity : trying to add5
+Graph : add_activity: activity already exists, adding arcs to activity
+Graph : add_activity: activity added
+Graph : _str_ : printing all nodes arcs and durations
+Graph : _init_ : in for loop : adding2 : 5 for start
+Graph : _init_ : in for loop : adding3 : 7 for start
+Graph : _init_ : in for loop : adding4 : 6 for start
+Graph : _init_ : in for loop : adding5 : 3 for 2
+Graph : _init_ : in for loop : adding6 : 9 for 2
+Graph : _init_ : in for loop : adding5 : 1 for 3
+Graph : _init_ : in for loop : adding7 : 4 for 3
+Graph : _init_ : in for loop : adding7 : 6 for 4
+Graph : _init_ : in for loop : adding6 : 13 for 4
+Graph : _init_ : in for loop : addingend : 8 for 5
+Graph : _init_ : in for loop : adding2 : 5 for 5
+Graph : _init_ : in for loop : addingend : 5 for 6
+Graph : _init_ : in for loop : addingend : 11 for 7
+Graph : remove_activity: tried to remove activity from graph
+Graph : remove_activity: activity doesn't exist therefore couldn't be removed
+Graph : remove_activity: tried to remove activity from graph
+Graph : remove_activity: remove all arcs related to removed activity
+Graph : _str_ : printing all nodes arcs and durations
+Graph : _init_ : in for loop : adding2 : 5 for start
+Graph : _init_ : in for loop : adding3 : 7 for start
+Graph : _init_ : in for loop : adding4 : 6 for start
+Graph : _init_ : in for loop : adding5 : 3 for 2
+Graph : _init_ : in for loop : adding6 : 9 for 2
+Graph : _init_ : in for loop : adding5 : 1 for 3
+Graph : _init_ : in for loop : adding6 : 13 for 4
+Graph : _init_ : in for loop : addingend : 8 for 5
+Graph : _init_ : in for loop : adding2 : 5 for 5
+Graph : _init_ : in for loop : addingend : 5 for 6
