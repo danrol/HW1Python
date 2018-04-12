@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c14f049-070f-4059-a4cd-84a54590f588" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
 =======
@@ -20,6 +21,7 @@
       <file leaf-file-name="project.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <state relative-caret-position="601">
               <caret line="396" column="25" selection-start-line="396" selection-start-column="25" selection-end-line="396" selection-end-column="25" />
@@ -53,6 +55,10 @@
 =======
             <state relative-caret-position="297">
               <caret line="313" column="41" selection-start-line="313" selection-start-column="41" selection-end-line="313" selection-end-column="41" />
+=======
+            <state relative-caret-position="204">
+              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+>>>>>>> 6e36de9c32555da0783c9c8712afee68d3daf209
               <folding>
                 <element signature="e#658#679#0" expanded="true" />
               </folding>
@@ -61,6 +67,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="pydev_run_in_console.py" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,6 +91,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> 6e36de9c32555da0783c9c8712afee68d3daf209
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -158,18 +167,6 @@
               <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
               <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
               <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HW1Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HW1Python" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="share" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -341,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523302319514</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added log functionality&#10;Changed Init in graph">
+      <created>1523444198826</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523444198826</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -355,15 +359,20 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
 =======
     <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
 >>>>>>> cc70e85e6c3c9eb68eee39dcebbdd254873786a3
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+>>>>>>> 6e36de9c32555da0783c9c8712afee68d3daf209
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2526357" />
-      <window_info anchor="bottom" id="TODO" order="10" weight="0.22835498" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25256222" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32750398" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32900432" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32900432" />
 <<<<<<< HEAD
@@ -371,20 +380,43 @@
 =======
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.28341013" />
 >>>>>>> cc70e85e6c3c9eb68eee39dcebbdd254873786a3
+=======
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.14308426" />
+      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.35612082" />
+>>>>>>> 6e36de9c32555da0783c9c8712afee68d3daf209
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32900432" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39935064" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2526357" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
 <<<<<<< HEAD
       <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
 =======
       <window_info anchor="bottom" id="Message" order="4" />
 >>>>>>> cc70e85e6c3c9eb68eee39dcebbdd254873786a3
+=======
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.22835498" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.28341013" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32900432" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32900432" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39935064" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="0" weight="0.32900432" />
+>>>>>>> 6e36de9c32555da0783c9c8712afee68d3daf209
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -393,7 +425,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update to add_activity" />
     <MESSAGE value="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to find isolated nodes&#10;change to global strings&#10;END_STRING_STR&#10;START_STRING_STR" />
+    <MESSAGE value="Added log functionality&#10;Changed Init in graph" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added log functionality&#10;Changed Init in graph" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -408,7 +441,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
     <entry file="file://$PROJECT_DIR$/../Python/Graph_example.py" />
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -510,17 +542,24 @@
     <entry file="file://$USER_HOME$/Desktop/ex2-1_Graph_solved.py" />
     <entry file="file://$USER_HOME$/Desktop/ex3-1_Graph_OOP_Solve.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/codecs.py" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_run_in_console.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1564">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Python_HW1Python_Logs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="43" lean-forward="true" selection-start-column="43" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -553,8 +592,8 @@
 =======
     <entry file="file://$PROJECT_DIR$/project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="313" column="41" selection-start-line="313" selection-start-column="41" selection-end-line="313" selection-end-column="41" />
+        <state relative-caret-position="204">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
           <folding>
             <element signature="e#658#679#0" expanded="true" />
           </folding>

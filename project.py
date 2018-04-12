@@ -12,16 +12,31 @@
 #         else:
 #             self.durations_to_next_activities_lst = durations_to_next_activities_lst
 
+#TODO remove unused imports
+#TODO Complete log outputs throughout file
+
 import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab
 
+import os
+
+file_path = "Python_HW1Python_Logs.txt"
+'''Logs will be written in this file, if previous version exists it will be erased'''
+
+if os.path.isfile(file_path):
+    try:
+        os.remove(file_path)
+    except OSError:
+        pass
+logfile = open(file_path, 'x')
+
 START_NODE_STR: str = 'start'
 END_NODE_STR: str = 'end'
 
 
-class Graph():
+class Graph:
     """This class represents project
         Attributes:
         activities_dict (activity_name : [{next_activity : activity_duration},
@@ -32,13 +47,21 @@ class Graph():
         """ initializes a graph object
             If no dictionary or None is given, an empty dictionary will be used
         """
-
+        logfile.write("Graph : _init_ : Creating new graph\n")
         if activities_dict is None:
             self.activities_dict = dict()
+            logfile.write("Graph : _init_ : No values for graph, creating generic empty graph\n")
         else:
             self.activities_dict = activities_dict
+            logfile.write("Graph : _init_ : graph arcs added\n")
+        if essential_activities is None:
+            self._essential_activities = dict()
+            logfile.write("Graph : _init_ : No values for essential graph arcs, creating generic empty dictionary for essential arcs\n")
+        else:
+            self._essential_activities = essential_activities
+            logfile.write("Graph : _init_ : graph essential arcs added\n")
 
-        self._essential_activities = essential_activities
+
 
         self._es_ls_ef_lf = dict()
         # TODO define default 0 for every value (4 values at all) in self._es_ls_ef_lf lists
@@ -70,6 +93,7 @@ class Graph():
             self._essential_activities = essential_activities
 
     def __str__(self):
+        logfile.write("Graph : _str_ : printing all nodes arcs and durations\n")
         str_to_print = "\nGraph print:\n"
         str_to_print += "{\n"
         for activity_node, connected_activities in self.activities_dict.items():
@@ -77,6 +101,7 @@ class Graph():
             for connected_nodes_dict in connected_activities:
                 for next_node, next_node_duration in connected_nodes_dict.items():
                     str_to_print += "{ " + str(next_node) + " : " + str(next_node_duration) + " } "
+                    logfile.write("Graph : _init_ : in for loop : adding" + str(next_node) + " : " + str(next_node_duration) + " for " + str(activity_node) + "\n")
             str_to_print += "]\n"
         str_to_print += "}"
         return str_to_print
@@ -93,25 +118,32 @@ class Graph():
         # if activity_duration is None or activity_duration < 0:
         #      print("Activity duration must be equal or bigger than 0")
         # else:
+        logfile.write("Graph : add_activity : trying to add" + str(activity_name) + "\n")
         if activity_name != END_NODE_STR:
             if activity_name not in self.activities_dict:
                 self.activities_dict.update({activity_name: next_activities_lst})
+                logfile.write("Graph : add_activity: created new activity in graph\n")
             else:
                 extended_lst = self.activities_dict.get(activity_name)
                 extended_lst.extend(next_activities_lst)
+                logfile.write("Graph : add_activity: activity already exists, adding arcs to activity\n")
                 self.activities_dict.update({activity_name: extended_lst})
             #       TODO check for duplicate dictionaries inside list
             print("Added node successfully")
+            logfile.write("Graph : add_activity: activity added\n")
 
     def remove_activity(self, activity_name):
         '''try to remove activity if activity not in dictionary, print:
          "Can't remove activity that is not in dictionary. Please check your input'''
         activity = self.activities_dict.pop(activity_name, None)
+        logfile.write("Graph : remove_activity: tried to remove activity from graph\n")
         if activity is None:
+            logfile.write("Graph : remove_activity: activity doesn't exist therefore couldn't be removed\n")
             print("Can't remove activity that is not in dictionary. ('" + activity_name + "') Please check your input")
             return
 
         '''removing all lines which lead to activity_name'''
+        logfile.write("Graph : remove_activity: remove all arcs related to removed activity\n")
         self.remove_arcs_including(activity_name)
 
     def remove_arcs_including(self, activity_name):
@@ -179,8 +211,9 @@ class Graph():
     def find_isolate_activities(self):
         isolated_activities = []
         for end_activity, connected_activities_start in self.activities_dict.items():
-            if end_activity is not START_NODE_STR:
-                if len(self.find_all_paths(START_NODE_STR, end_activity)) == 0:
+            if end_activity is not END_NODE_STR:
+                if len(self.find_all_paths(START_NODE_STR, end_activity)) == 0 or len(
+                        self.activities_dict.get(end_activity)) == 0:
                     isolated_activities.append(end_activity)
         return isolated_activities
 
@@ -325,12 +358,12 @@ print(g.find_all_circles())
 # # g.add_activity('5', [{'2':5}])
 # # print(g)
 
-g.validate_project()
+# g.validate_project()
 
 
 #print(g)
-#isolated_nodes = g.find_isolate_activities()
-#print("\nIsolated nodes: ", isolated_nodes)
+isolated_nodes = g.find_isolate_activities()
+print("\nIsolated nodes: ", isolated_nodes)
 
 g.remove_activity('11')
 g.remove_activity('7')
@@ -381,3 +414,4 @@ print(g)
 # g.validate_project()
 
 # TODO check for duplicates
+logfile.close()
